@@ -91,7 +91,7 @@ interface CountryItemProps {
   onSelect(country: Country): void
 }
 const CountryItem = (props: CountryItemProps) => {
-  const { activeOpacity, itemHeight, flagSize } = useTheme()
+  const { activeOpacity, itemHeight, itemStyle, flagSize } = useTheme()
   const {
     country,
     onSelect,
@@ -118,7 +118,7 @@ const CountryItem = (props: CountryItemProps) => {
       onPress={() => onSelect(country)}
       {...{ activeOpacity }}
     >
-      <View style={[styles.itemCountry, { height: itemHeight }]}>
+      <View style={[styles.itemCountry, { height: itemHeight }, itemStyle]}>
         {withFlag && (
           <Flag
             {...{ withEmoji, countryCode: country.cca2, flagSize: flagSize! }}
